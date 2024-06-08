@@ -1,0 +1,26 @@
+1.
+Pobrać node.js i zainstalować (testowane na wersji v20.9.0)
+
+2.
+Zainstalować appium
+W wierszu poleceń cmd wydać polecenie: npm install -g appium@2.2
+oraz: appium driver install uiautomator2
+
+3.
+Pobrać i zainstalować pyCharm Community lub Prof
+(rejestrując się na maila wsb powinno się otrzymać rok licencji za free na wszystkie narzędzia JetBrains)
+
+4.
+Pobrać i zainstalować Android Studio
+
+5.
+Pobrać i zainstalować JDK z strony https://adoptium.net/
+
+6.
+Edytuj zmienne środowiskowe systemu -> Zmienne środowiskowe -> Zmienne systemowe -> dodać trzy poniższe:
+ANDROID_HOME -> C:\Users\Merito\AppData\Local\Android\Sdk
+ANDROID_SDK_ROOT -> C:\Users\Merito\AppData\Local\Android\Sdk
+JAVA_HOME -> C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot\bin
+
+
+
