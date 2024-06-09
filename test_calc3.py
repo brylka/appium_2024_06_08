@@ -1,3 +1,4 @@
+import random
 import unittest
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
@@ -20,17 +21,37 @@ class MyAplicationTests(unittest.TestCase):
 
     def test_calculator(self):
 
-        for a in range(2,5):
-            self.click_button(a)
-            self.click_button("+")
-            self.click_button(a)
-            self.click_button("=")
+        for _ in range(10):
+            #a = random.randint(0,999)
+            #b = random.randint(0,999)
+            c = [1,2,3,4,53,42,4234,234,324,34,534,65345,654,3654,6,4355,34,532,4,256,55,8776,89,6574,654]
+            a = random.choice(c)
+            b = random.choice(c)
+            d = random.choice(["+", "-", "*", "/"])
+            #buttons = str(a) + "+" + str(a) + "="
+            #buttons = f"{a}+{a}="
+            for button in f"{a}{d}{b}=":
+                self.click_button(button)
+            #for button in str(a):
+            #    self.click_button(button)
+            #self.click_button("+")
+            #for button in str(a):
+            #    self.click_button(button)
+            #self.click_button("=")
 
             result_text = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, f"//*[contains(@text, 'Wynik:')]"))
             )
 
-            result_correct = float(a+a)
+            result_correct = None
+            if d == "+":
+                result_correct = float(a + b)
+            elif d == "-":
+                result_correct = float(a - b)
+            elif d == "*":
+                result_correct = float(a * b)
+            elif d == "/":
+                result_correct = float(a / b)
             result = float(result_text.text.split("Wynik: ")[1])
             self.assertEqual(result, result_correct)
 
